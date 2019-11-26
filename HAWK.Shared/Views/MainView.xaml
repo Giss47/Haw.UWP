@@ -1,0 +1,33 @@
+﻿<local:MainViewBase
+    x:Class="HAWK.Shared.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HAWK.Shared.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid>
+        <NavigationView x:Name="NavView"
+                        PaneTitle="Hawk.DevOps"
+                        SelectionChanged="NavView_SelectionChanged"
+                        Header="Welcome"
+                        Loaded="NavView_Loaded"
+                        BackRequested="NavView_BackRequested"
+                        IsSettingsVisible="False">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Home" Content="Home" Tag="Home" />
+                <NavigationViewItem Icon="Save" Content="Api Settings" Tag="ApiSettings" />
+            </NavigationView.MenuItems>
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" NavigationFailed="ContentFrame_NavigationFailed">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition />
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </ScrollViewer>
+        </NavigationView>
+        <TextBlock x:Name="AppTitle" Style="{StaticResource CaptionTextBlockStyle}" Margin="30,8" Height="20" VerticalAlignment="Top" />
+    </Grid>
+</local:MainViewBase>

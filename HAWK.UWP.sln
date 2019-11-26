@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAWK.UWP", "HAWK.UWP\HAWK.UWP.csproj", "{1024C0B2-082D-4E95-A118-F36E321216A5}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HAWK.Shared", "HAWK.Shared\HAWK.Shared.shproj", "{3C2DDFA8-91DA-4BF1-AD9F-AF4CAF48C07D}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		HAWK.Shared\HAWK.Shared.projitems*{1024c0b2-082d-4e95-a118-f36e321216a5}*SharedItemsImports = 4
+		HAWK.Shared\HAWK.Shared.projitems*{3c2ddfa8-91da-4bf1-ad9f-af4caf48c07d}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|ARM.Build.0 = Debug|ARM
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|ARM.Deploy.0 = Debug|ARM
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|ARM64.Build.0 = Debug|ARM64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|x64.ActiveCfg = Debug|x64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|x64.Build.0 = Debug|x64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|x64.Deploy.0 = Debug|x64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|x86.ActiveCfg = Debug|x86
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|x86.Build.0 = Debug|x86
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Debug|x86.Deploy.0 = Debug|x86
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|ARM.ActiveCfg = Release|ARM
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|ARM.Build.0 = Release|ARM
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|ARM.Deploy.0 = Release|ARM
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|ARM64.ActiveCfg = Release|ARM64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|ARM64.Build.0 = Release|ARM64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|ARM64.Deploy.0 = Release|ARM64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|x64.ActiveCfg = Release|x64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|x64.Build.0 = Release|x64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|x64.Deploy.0 = Release|x64
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|x86.ActiveCfg = Release|x86
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|x86.Build.0 = Release|x86
+		{1024C0B2-082D-4E95-A118-F36E321216A5}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDC9247B-33C3-441B-9554-08841BC85FA3}
+	EndGlobalSection
+EndGlobal
