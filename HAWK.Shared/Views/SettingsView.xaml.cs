@@ -1,4 +1,9 @@
-﻿using System;
+﻿using HAWK.Shared;
+using HAWK.Shared.Services.AppConfigService;
+using HAWK.Shared.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,11 +25,26 @@ namespace HAWK.UWP
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SettingsView : Page
+    public sealed partial class SettingsView : Page, IViewFor<SettingsViewModel>
     {
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty
+       .Register(nameof(ViewModel), typeof(SettingsViewModel), typeof(SettingsViewModel), new PropertyMetadata(null));
         public SettingsView()
         {
             this.InitializeComponent();
+            ViewModel = Startup.ServiceProvider.GetService<SettingsViewModel>();
+        }
+
+        public SettingsViewModel ViewModel
+        {
+            get => (SettingsViewModel)GetValue(ViewModelProperty);
+            set => SetValue(ViewModelProperty, value);
+        }
+
+        object IViewFor.ViewModel
+        {
+            get => ViewModel;
+            set => ViewModel = (SettingsViewModel)value;
         }
     }
 }

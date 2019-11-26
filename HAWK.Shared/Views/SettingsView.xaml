@@ -9,11 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
         <StackPanel Background="{ThemeResource AppBarBackgroundThemeBrush}" Padding="0,50">
-            <TextBox x:Name="URI" Header="Api" Margin="0,24" HorizontalAlignment="Center" Width="300" />
-            <PasswordBox x:Name="Key" Header="Key" HorizontalAlignment="Center" Width="300" />
+            <TextBox x:Name="URI" Header="Api" Margin="0,24" HorizontalAlignment="Center" Width="400" Text="{x:Bind ViewModel.Uri, Mode=TwoWay}" PlaceholderText="Api Uri" />
+            <PasswordBox x:Name="Key" Header="Key" HorizontalAlignment="Center" Width="400" Password="{x:Bind ViewModel.Key, Mode=TwoWay}" PlaceholderText="Api Key" MaxLength="100" />
             <RelativePanel HorizontalAlignment="Center">
-                <Button x:Name="Save" Content="Save" Width="70" Margin="0, 20" />
-                <Button x:Name="Cancel" Content="Cancel" Width="70" Margin="20" RelativePanel.RightOf="Save" />
+                <Button x:Name="Save" Content="Save" Width="70" Margin="0, 20" Command="{x:Bind ViewModel.SaveCommand}" />
+                <Button x:Name="Cancel" Content="Cancel" Width="70" Margin="20" RelativePanel.RightOf="Save" Command="{x:Bind ViewModel.CancelCommand}" />
             </RelativePanel>
         </StackPanel>
     </Grid>

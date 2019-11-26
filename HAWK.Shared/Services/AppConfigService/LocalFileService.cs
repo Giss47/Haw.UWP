@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Windows.Storage;
 
 namespace HAWK.Shared.Services.AppConfigService
 {
     class LocalFileService : ILocalFileService
     {
-        private static readonly string HawkDataFilesPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Hawk");
+        private static readonly string HawkDataFilesPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Hawk");
         private static readonly string SettingsPath = Path.Combine(HawkDataFilesPath, "Settings.json");
         private static readonly string OrgTokenPath = Path.Combine(HawkDataFilesPath, "OrgToken.json");
 

@@ -22,11 +22,13 @@ namespace HAWK.Shared
                 .ConfigureServices(ConfigureServices)
                 .Build().Services;
         }
+
         private static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
             services.AddTransient<MainViewModel>();
             services.AddTransient<IAppDataDirectoryService, AppDataDirectoryService>();
             services.AddTransient<ILocalFileService, LocalFileService>();
+            services.AddTransient<SettingsViewModel>();
         }
     }
 }
