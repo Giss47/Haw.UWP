@@ -37,7 +37,8 @@ namespace HAWK.Shared.Views
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
         {
             ("ApiSettings", typeof(SettingsView)),
-            ("Home", typeof(HomeView))
+            ("Home", typeof(HomeView)),
+             ("Organizations", typeof(OrgTokView))
         };
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -110,6 +111,10 @@ namespace HAWK.Shared.Views
 
                 case "Home":
                     ContentFrame.Navigate(typeof(HomeView));
+                    break;
+
+                case "Organizations":
+                    ContentFrame.Navigate(typeof(OrgTokView));
                     break;
             }
         }

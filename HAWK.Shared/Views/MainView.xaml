@@ -16,7 +16,8 @@
                         IsSettingsVisible="False">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="Home" />
-                <NavigationViewItem Icon="Save" Content="Api Settings" Tag="ApiSettings" />
+                <NavigationViewItem Icon="Edit" Content="Api Settings" Tag="ApiSettings" />
+                <NavigationViewItem Icon="Add" Content="Organizations" Tag="Organizations" />
             </NavigationView.MenuItems>
             <ScrollViewer>
                 <Frame x:Name="ContentFrame" NavigationFailed="ContentFrame_NavigationFailed">
@@ -28,6 +29,6 @@
                 </Frame>
             </ScrollViewer>
         </NavigationView>
-        <TextBlock x:Name="AppTitle" Style="{StaticResource CaptionTextBlockStyle}" Margin="30,8" Height="20" VerticalAlignment="Top" />
+        <TextBlock x:Name="AppTitle" Style="{StaticResource CaptionTextBlockStyle}" Margin="50,8" Height="20" VerticalAlignment="Top" />
     </Grid>
 </local:MainViewBase>
