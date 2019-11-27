@@ -52,7 +52,6 @@ namespace HAWK.Shared.ViewModels
         public ReactiveCommand<Unit, Unit> CancelCommand { get; }
         public void Cancel_Clicked()
         {
-            LocalFileService.ReadOrgTok();
             Key = string.Empty;
             Uri = currentUri;
         }

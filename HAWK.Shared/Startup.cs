@@ -29,6 +29,7 @@ namespace HAWK.Shared
             services.AddTransient<IAppDataDirectoryService, AppDataDirectoryService>();
             services.AddTransient<ILocalFileService, LocalFileService>();
             services.AddTransient<SettingsViewModel>();
+            services.AddTransient<OrganizationCredViewModel>();
         }
     }
 }

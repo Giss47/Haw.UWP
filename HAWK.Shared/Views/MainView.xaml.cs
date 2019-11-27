@@ -38,7 +38,7 @@ namespace HAWK.Shared.Views
         {
             ("ApiSettings", typeof(SettingsView)),
             ("Home", typeof(HomeView)),
-             ("Organizations", typeof(OrgTokView))
+             ("Organizations", typeof(OrganizationCredView))
         };
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -114,7 +114,7 @@ namespace HAWK.Shared.Views
                     break;
 
                 case "Organizations":
-                    ContentFrame.Navigate(typeof(OrgTokView));
+                    ContentFrame.Navigate(typeof(OrganizationCredView));
                     break;
             }
         }
