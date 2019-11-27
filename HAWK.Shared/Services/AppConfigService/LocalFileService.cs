@@ -31,9 +31,9 @@ namespace HAWK.Shared.Services.AppConfigService
         /// <returns>
         /// A dictionary with Organization name as a key and access token as a value
         /// </returns>
-        public Dictionary<string, string> ReadOrgTok()
+        public ICollection<OrganizationCred> ReadOrgTok()
         {
-            return LoadObjectFromJsonFile<Dictionary<string, string>>(OrgTokenPath);
+            return LoadObjectFromJsonFile<ICollection<OrganizationCred>>(OrgTokenPath);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace HAWK.Shared.Services.AppConfigService
         /// </summary>
         /// <param name="org"></param>
         /// <param name="tok"></param>
-        public void SaveOrgTok(Dictionary<string, string> orgTokList)
+        public void SaveOrgTok(ICollection<OrganizationCred> orgTokList)
         {
             SaveObjectToJsonFile(orgTokList, OrgTokenPath);
         }
@@ -70,5 +70,12 @@ namespace HAWK.Shared.Services.AppConfigService
                 ? default
                 : JsonConvert.DeserializeObject<T>(json);
         }
+    }
+
+    public class OrganizationCred
+    {
+        public string Name { get; set; }
+
+        public string AccessToken { get; set; }
     }
 }

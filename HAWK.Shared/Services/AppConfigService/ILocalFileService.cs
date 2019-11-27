@@ -11,8 +11,8 @@ namespace HAWK.Shared.Services.AppConfigService
 
         void SaveSettings(string api, string key);
 
-        void SaveOrgTok(Dictionary<string, string> orgTekList);
+        void SaveOrgTok(ICollection<OrganizationCred> orgTekList);
 
-        Dictionary<string, string> ReadOrgTok();
+        public ICollection<OrganizationCred> ReadOrgTok();
     }
 }
