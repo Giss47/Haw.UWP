@@ -22,9 +22,25 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="DeleteButton" TargetType="Button">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="Pink" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
     <StackPanel>
-        <TextBlock Text="Add New Organization" Style="{StaticResource SubheaderTextBlockStyle}" Margin="50, 60, 50, 10" HorizontalAlignment="Center"/>
+        <TextBlock Text="Add New Organization"
+                   Style="{StaticResource SubheaderTextBlockStyle}"
+                   Margin="50, 60, 50, 10"
+                   HorizontalAlignment="Center" />
         <TextBox x:Name="Organization"
                  Header="Organization"
                  Margin="0,24"
@@ -37,10 +53,24 @@
                      HorizontalAlignment="Center" Width="400"
                      Password="{x:Bind ViewModel.AccessToken, Mode=TwoWay}"
                      PlaceholderText="Token" MaxLength="100" />
-        <RelativePanel HorizontalAlignment="Center" Margin="0, 0, 0, 50">
-            <Button x:Name="Save" Content="Save" Width="70" Margin="0, 20" />
-            <Button x:Name="Cancel" Content="Cancel" Width="70" Margin="20" RelativePanel.RightOf="Save" />
+        <RelativePanel HorizontalAlignment="Center">
+            <Button x:Name="Save"
+                    Content="Save" Width="70"
+                    Margin="0, 20"
+                    Command="{x:Bind ViewModel.SaveCommand}" />
+            <Button x:Name="Cancel"
+                    Content="Cancel"
+                    Width="70"
+                    Margin="20"
+                    RelativePanel.RightOf="Save"
+                    Command="{x:Bind ViewModel.CancelCommand}" />
         </RelativePanel>
+        <TextBlock Foreground="red"
+                   x:Name="MesageBox"
+                   Text="{x:Bind ViewModel.Message, Mode=Oneway}"
+                   FontStyle="Italic" Width="300" Margin="0, 0, 0, 50"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center" />
         <Button Command="{x:Bind ViewModel.LoadOrganizationCred}"
                 Margin="20" Content="Show organizations"
                 Style="{StaticResource RoundButtonTemplate}"
@@ -49,9 +79,20 @@
         <ItemsControl ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:OrganizationCredViewModel">
-                    <Border BorderBrush="Pink" CornerRadius="10" BorderThickness="1" Width="200" HorizontalAlignment="Left" Margin="20">
-                        <TextBlock Text="{x:Bind Name}" Padding="10" Margin="5" />
-                    </Border>
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderBrush="Pink"
+                                CornerRadius="10"
+                                BorderThickness="1"
+                                Width="200"
+                                HorizontalAlignment="Left"
+                                Margin="20, 5,5,5">
+                            <TextBlock Text="{x:Bind Name}" Padding="10" />
+                        </Border>
+                        <Button x:Name="DeleteButton"
+                                Content="Χ"  Style="{StaticResource DeleteButton}"
+                                Margin="5,0,0,0"
+                                Command="{x:Bind DeleteOganizationCredCommand}" />
+                    </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

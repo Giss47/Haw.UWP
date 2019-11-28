@@ -1,9 +1,7 @@
 ﻿using Hawk.Api.Client.Library;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Windows.Storage;
 
 namespace HAWK.Shared.Services.AppConfigService
@@ -56,13 +54,13 @@ namespace HAWK.Shared.Services.AppConfigService
             SaveObjectToJsonFile(orgTokList, OrgTokenPath);
         }
 
-        public static void SaveObjectToJsonFile<T>(T value, string fileName)
+        private static void SaveObjectToJsonFile<T>(T value, string fileName)
         {
             var json = JsonConvert.SerializeObject(value);
             File.WriteAllText(fileName, json);
         }
 
-        public static T LoadObjectFromJsonFile<T>(string fileName)
+        private static T LoadObjectFromJsonFile<T>(string fileName)
         {
             var json = File.ReadAllText(fileName);
 

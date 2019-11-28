@@ -1,26 +1,14 @@
 ﻿using HAWK.Shared.ViewModels;
+using HAWK.UWP;
 using ReactiveUI;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reactive.Disposables;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using HAWK.Shared.Services.AppConfigService;
-using Windows.System;
-using Windows.UI.Xaml.Media.Animation;
-using HAWK.UWP;
-using Windows.UI.Core;
 
 namespace HAWK.Shared.Views
 {

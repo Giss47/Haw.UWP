@@ -1,7 +1,5 @@
 ﻿using Hawk.Api.Client.Library;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace HAWK.Shared.Services.AppConfigService
 {

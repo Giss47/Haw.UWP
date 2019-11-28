@@ -1,9 +1,6 @@
 ﻿using HAWK.Shared.Services.AppConfigService;
-using ReactiveUI;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using ReactiveUI;
 using System.Reactive;
 
 namespace HAWK.Shared.ViewModels
