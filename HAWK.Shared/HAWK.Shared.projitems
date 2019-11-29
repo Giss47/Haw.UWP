@@ -9,9 +9,11 @@
     <Import_RootNamespace>HAWK.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ApiRequest\PullRequestQuery.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\BaseCollectionModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\Organization.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\PullRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\PullRequestResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\Repository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppConfigService\AppDataDirectoryService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppConfigService\IAppDataDirectoryService.cs" />
@@ -19,7 +21,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppConfigService\LocalFileService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Startup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OrganizationCredViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OrganizationCredViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PullRequestQueryViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -28,6 +31,9 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\OrganizationCredView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PullRequestQueryView.xaml.cs">
+      <DependentUpon>PullRequestQueryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -42,6 +48,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\OrganizationCredView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\PullRequestQueryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
