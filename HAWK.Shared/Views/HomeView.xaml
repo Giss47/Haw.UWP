@@ -10,13 +10,16 @@
 
     <Grid>
         <StackPanel>
-            <Border Height="150"
-                Width="400"
+            <Border Height="100"
+                Width="500"
                 Margin="20, 20"
                 BorderThickness="5"
-                BorderBrush="Azure"
-                HorizontalAlignment="Center">
-                <TextBlock Text="Hawk DevOps App" Height="100" Style="{StaticResource HeaderTextBlockStyle}" Padding="10,17" />
+                BorderBrush="#3969D7"
+                HorizontalAlignment="Center"
+                CornerRadius="50"
+                 Opacity="0.2"
+                   >
+                <TextBlock Text="Hawk DevOps App" Height="100" Style="{StaticResource HeaderTextBlockStyle}" Padding="10,17" TextAlignment="Center" />
             </Border>
         </StackPanel>
     </Grid>

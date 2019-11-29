@@ -9,9 +9,10 @@
     <Import_RootNamespace>HAWK.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\BaseCollectionModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\Organization.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\PullRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ApiResponse\Repository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppConfigService\AppDataDirectoryService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppConfigService\IAppDataDirectoryService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppConfigService\ILocalFileService.cs" />

@@ -104,6 +104,7 @@ namespace HAWK.Shared.ViewModels
             if (credentialToRemove != null)
             {
                 organizationCredsFromJson.Remove(credentialToRemove);
+                LocalFilesService.SaveOrgTok(organizationCredsFromJson);
                 OrganizationsCredCache.Remove(credentialToRemove.Name);
             }
         }
