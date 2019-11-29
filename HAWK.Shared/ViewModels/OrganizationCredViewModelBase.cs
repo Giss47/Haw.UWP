@@ -3,13 +3,11 @@ using ReactiveUI;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using DynamicData;
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using System.Reactive;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace HAWK.Shared.ViewModels
 {
@@ -35,19 +33,24 @@ namespace HAWK.Shared.ViewModels
             get => message;
             set => this.RaiseAndSetIfChanged(ref message, value);
         }
-        private ICollection<OrganizationCred> _organizationCreds;
+        private ICollection<OrganizationCred> organizationCredsFromJson;
         ILocalFileService LocalFilesService { get; }
-        private SourceCache<OrganizationCred, string> OrganizationsCred;
+        private SourceCache<OrganizationCred, string> OrganizationsCredCache;
         public ReadOnlyObservableCollection<OrganizationCredViewModel> Items;
         public ReactiveCommand<Unit, Unit> LoadOrganizationCred { get; }
+
+        private OrganizationCredViewModel(OrganizationCredViewModel parent)
+        {
+            DeleteOganizationCredCommand = parent.DeleteOganizationCredCommand;
+        }
+
         public OrganizationCredViewModel()
         {
             LocalFilesService = Startup.ServiceProvider.GetService<ILocalFileService>();
-            _organizationCreds = LocalFilesService.ReadOrgTok();
-            OrganizationsCred = new SourceCache<OrganizationCred, string>(org => org.Name);
-            OrganizationsCred.Connect()
+            OrganizationsCredCache = new SourceCache<OrganizationCred, string>(org => org.Name);
+            OrganizationsCredCache.Connect()
                              .Transform(OrganizationsCred =>
-                                        new OrganizationCredViewModel()
+                                        new OrganizationCredViewModel(this)
                                         {
                                             Name = OrganizationsCred.Name,
                                             AccessToken = OrganizationsCred.AccessToken
@@ -55,7 +58,8 @@ namespace HAWK.Shared.ViewModels
                              .ObserveOn(RxApp.MainThreadScheduler)
                              .Bind(out Items)
                              .Subscribe();
-            LoadOrganizationCred = ReactiveCommand.Create(() => OrganizationsCred.AddOrUpdate(_organizationCreds));
+
+            LoadOrganizationCred = ReactiveCommand.Create(() => OrganizationsCredCache.AddOrUpdate(organizationCredsFromJson = LocalFilesService.ReadOrgTok()));
 
             var canExecute = this.WhenAnyValue(
            x => x.Name, x => x.AccessToken,
@@ -65,17 +69,17 @@ namespace HAWK.Shared.ViewModels
 
             SaveCommand = ReactiveCommand.Create(SaveNewOrganization, canExecute);
             CancelCommand = ReactiveCommand.Create(Cancel_Clicked, canExecute);
-            DeleteOganizationCredCommand = ReactiveCommand.Create(Delete);
+            DeleteOganizationCredCommand = ReactiveCommand.Create<OrganizationCredViewModel>(Delete);
         }
 
         public ReactiveCommand<Unit, Unit> SaveCommand { get; }
         private void SaveNewOrganization()
         {
-            if (!_organizationCreds.Any(org => org.Name == Name))
+            if (!organizationCredsFromJson.Any(org => org.Name == Name))
             {
-                _organizationCreds.Add(new OrganizationCred() { Name = Name, AccessToken = AccessToken });
-                LocalFilesService.SaveOrgTok(_organizationCreds);
-                OrganizationsCred.AddOrUpdate(_organizationCreds);
+                organizationCredsFromJson.Add(new OrganizationCred() { Name = Name, AccessToken = AccessToken });
+                LocalFilesService.SaveOrgTok(organizationCredsFromJson);
+                OrganizationsCredCache.AddOrUpdate(organizationCredsFromJson);
                 Name = string.Empty;
                 AccessToken = string.Empty;
                 message = string.Empty;
@@ -93,15 +97,14 @@ namespace HAWK.Shared.ViewModels
             AccessToken = string.Empty;
         }
 
-        public ReactiveCommand<Unit, Unit> DeleteOganizationCredCommand { get; }
-        private void Delete()
+        public ReactiveCommand<OrganizationCredViewModel, Unit> DeleteOganizationCredCommand { get; }
+        private void Delete(OrganizationCredViewModel organization)
         {
-            foreach (var org in _organizationCreds)
+            var credentialToRemove = organizationCredsFromJson.FirstOrDefault(orgCred => orgCred.Name == organization.Name);
+            if (credentialToRemove != null)
             {
-                if (org.Name == Name)
-                {
-                    _organizationCreds.Remove(org);
-                }
+                organizationCredsFromJson.Remove(credentialToRemove);
+                OrganizationsCredCache.Remove(credentialToRemove.Name);
             }
         }
     }

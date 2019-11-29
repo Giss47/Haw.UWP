@@ -18,7 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppConfigService\LocalFileService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Startup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OrganizationCredViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OrganizationCredViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -26,9 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\OrganizationCredView.xaml.cs">
-      <DependentUpon>OrganizationCredView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\OrganizationCredView.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
